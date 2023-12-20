@@ -88,13 +88,13 @@ source ./install/setup.bash
 
 
 LET'S KEEP GOING.. TYPE THOSE COMMANDS TOO:
-
+-
 4) source ./install/setup.bash    					 (ENTER)
-   
+-   
 5) echo "source ~/ydlidar_ros2_ws/install/setup.bash" >> ~/.bashrc  	 (ENTER)
-   
+- 
 6) $source ~/.bashrc							 (ENTER)
--------
+-
 
 WE ARE BEGINING TO FIX THE ERRORS!!!!!!!!!!!
 NOW THERE ARE 3 FILES TO CHANGE! DESTROY THE OLD ONES!
@@ -143,15 +143,11 @@ kalyon@kalyon-ak:~/ydlidar_ros2_ws$ source ./install/setup.bash
 ...CONTINUE TO THE ORIGINAL INSTRUCTIONS:
 -
 1. Connect LiDAR uint(s).
-   ```
 ros2 launch ydlidar_ros2_driver ydlidar_launch.py   <<<<<<YOU CAN CALL YOUR LIDAR WITH THAT COMMAND
 ---------------------------------------------------------------------------------------------------   
-   ```
+   
    or 
-
-   ```
    launch $(ros2 pkg prefix ydlidar_ros2_driver)/share/ydlidar_ros2_driver/launch/ydlidar.py 
-   ```
 2. RVIZ 
 -
 ros2 launch ydlidar_ros2_driver ydlidar_launch_view.py    <<<< YOU DONT NEED THAT COMMAND THIS NODE WILL NOT WORK, OR IF YOU CHANGE THE DECLERATIONS THAT YOU MADE TO ydlidar_launch.py 	IT WILL WORK TOO..
