@@ -18,7 +18,7 @@ ERROR FIXING TESTED! ON YDLIDAR UBUNTU 20.04 WITH ROS2 FOXY AND HUMBLE AND 22.04
 -
 VERY EASY ... LETS START FROM THE BEGINING...
 -
-STEP 1- GO TO INSTALL SDK PAGE AND DO WHATEVER IS SAID. DONT WORRY IF YOU SEE ERROR MESSAGES, KEEP GOING TILL THE END. WE WILL FIX IT AFTER THE INSTALLATION
+STEP 1- GO TO INSTALL SDK PAGE AND DO WHATEVER IS SAID. DONT WORRY IF YOU SEE ERROR MESSAGES, KEEP GOING TILL THE END. WE WILL FIX THEM AFTER THE INSTALLATION
 -
 (ORIGINAL INSTRUCTIONS:
 -
@@ -26,12 +26,14 @@ ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed 
 
 1. Download or clone the [YDLIDAR/YDLidar-SDK](https://github.com/YDLIDAR/YDLidar-SDK) repository on GitHub.
 2. Compile and install the YDLidar-SDK under the ***build*** directory following `README.md` of YDLIDAR/YDLidar-SDK.)
+
+
+---------------------------------------------
 FOLLOW THE INSTRUCTIONS AND INSTALL THE YDLIDAR-SKD!
 
-AFTER YDLIDAR-SDK INSTALLATION GO HOME PLACE
-cd           (press enter)
+AFTER YDLIDAR-SDK INSTALLATION GO HOME . NOW ROS2 DRIVER WE WILL CLONE!
 
- ----------------------than again the original instructions to follow:
+    -- AT HOME DIRECTORY ----
 
 ## Clone ydlidar_ros2_driver
 
@@ -41,7 +43,7 @@ cd           (press enter)
 
 2. Build ydlidar_ros2_driver package :
 
-   ```
+   
    cd ydlidar_ros2_ws
    colcon build --symlink-install
 
@@ -91,11 +93,11 @@ LET'S KEEP GOING.. TYPE THOSE COMMANDS TOO:
 -
 
 source ./install/setup.bash
-```   
+   
 echo "source ~/ydlidar_ros2_ws/install/setup.bash" >> ~/.bashrc
-```
- source ~/.bashrc
-```
+
+source ~/.bashrc
+
 
 
 WE ARE BEGINING TO FIX THE ERRORS!!!!!!!!!!!
@@ -122,7 +124,7 @@ GO TO:
 YOURPC@YOURPC-YOURPC:   ~/ydlidar_ros2_ws$ AND TYPE THE COMMAND>>>>    
 
 colcon build --symlink-install
-```
+
 EXAMPLE:
 -
 kalyon@kalyon-ak:~/ydlidar_ros2_ws$ colcon build --symlink-install
@@ -137,7 +139,7 @@ CONGS! YOU MADE IT...
 LETS FINALLY DO THE SOURCING!
 
 source ./install/setup.bash
-```
+
 EXAMPLE:
 kalyon@kalyon-ak:~/ydlidar_ros2_ws$ source ./install/setup.bash
 
@@ -158,18 +160,18 @@ ros2 launch ydlidar_ros2_driver ydlidar_launch.py   <<<<<<YOU CAN CALL YOUR LIDA
 ros2 launch ydlidar_ros2_driver ydlidar_launch_view.py
 ```
 <<<< YOU DONT NEED THAT COMMAND THIS NODE WILL NOT WORK, OR IF YOU CHANGE THE DECLERATIONS THAT YOU MADE TO ydlidar_launch.py 	
-~~
+
 IT WILL WORK TOO..
 
 1))BUT INSTEAD OF DOING THAT... DO THIS:
 ros2 launch ydlidar_ros2_driver ydlidar_launch.py 
-```
+
 ><<< CALL YOUR LIDAR..
 
 2))IN ANOTHER COMMAND WINDOW, CALL RVIZ:
 
 rviz2
-```
+
 3)) go to rviz
 
 --click Add
