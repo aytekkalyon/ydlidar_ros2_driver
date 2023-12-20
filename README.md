@@ -88,8 +88,11 @@ source ./install/setup.bash
 
 
 LET'S KEEP GOING.. TYPE THOSE COMMANDS TOO:
+
 4) source ./install/setup.bash    					 (ENTER)
+   
 5) echo "source ~/ydlidar_ros2_ws/install/setup.bash" >> ~/.bashrc  	 (ENTER)
+   
 6) $source ~/.bashrc							 (ENTER)
 -------
 
