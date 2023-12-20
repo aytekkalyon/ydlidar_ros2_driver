@@ -148,17 +148,27 @@ ros2 launch ydlidar_ros2_driver ydlidar_launch.py   <<<<<<YOU CAN CALL YOUR LIDA
    
    or 
    launch $(ros2 pkg prefix ydlidar_ros2_driver)/share/ydlidar_ros2_driver/launch/ydlidar.py 
+
+   
 2. RVIZ 
--
-ros2 launch ydlidar_ros2_driver ydlidar_launch_view.py    <<<< YOU DONT NEED THAT COMMAND THIS NODE WILL NOT WORK, OR IF YOU CHANGE THE DECLERATIONS THAT YOU MADE TO ydlidar_launch.py 	IT WILL WORK TOO..
+
+ros2 launch ydlidar_ros2_driver ydlidar_launch_view.py
+~~
+<<<< YOU DONT NEED THAT COMMAND THIS NODE WILL NOT WORK, OR IF YOU CHANGE THE DECLERATIONS THAT YOU MADE TO ydlidar_launch.py 	
+~~
+IT WILL WORK TOO..
 
 1))BUT INSTEAD OF DOING THAT... DO THIS:
-ros2 launch ydlidar_ros2_driver ydlidar_launch.py   ><<< CALL YOUR LIDAR..
+ros2 launch ydlidar_ros2_driver ydlidar_launch.py 
+~~
+><<< CALL YOUR LIDAR..
 
-2))IN ANOTHER COMMAND WINDOW, CALL RVIZ
+2))IN ANOTHER COMMAND WINDOW, CALL RVIZ:
+
 rviz2
-
+~~
 3)) go to rviz
+
 --click Add
 --click ByTopic
 --scroll down and find /scan LaserScan , choose and click ok
