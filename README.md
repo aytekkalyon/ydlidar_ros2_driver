@@ -89,12 +89,14 @@ source ./install/setup.bash
 
 LET'S KEEP GOING.. TYPE THOSE COMMANDS TOO:
 -
-4) source ./install/setup.bash    					 (ENTER)
--   
-5) echo "source ~/ydlidar_ros2_ws/install/setup.bash" >> ~/.bashrc  	 (ENTER)
-- 
-6) $source ~/.bashrc							 (ENTER)
--
+
+source ./install/setup.bash
+```   
+echo "source ~/ydlidar_ros2_ws/install/setup.bash" >> ~/.bashrc
+```
+ source ~/.bashrc
+```
+
 
 WE ARE BEGINING TO FIX THE ERRORS!!!!!!!!!!!
 NOW THERE ARE 3 FILES TO CHANGE! DESTROY THE OLD ONES!
@@ -120,10 +122,11 @@ GO TO:
 YOURPC@YOURPC-YOURPC:   ~/ydlidar_ros2_ws$ AND TYPE THE COMMAND>>>>    
 
 colcon build --symlink-install
---
+```
 EXAMPLE:
 -
 kalyon@kalyon-ak:~/ydlidar_ros2_ws$ colcon build --symlink-install
+
 [13.808s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/kalyon/robot_ws/install/ydlidar' in the environment variable AMENT_PREFIX_PATH doesn't exist
 [13.809s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/kalyon/robot_ws/install/ydlidar' in the environment variable CMAKE_PREFIX_PATH doesn't exist
 Starting >>> ydlidar_ros2_driver
@@ -133,8 +136,8 @@ CONGS! YOU MADE IT...
 
 LETS FINALLY DO THE SOURCING!
 
- source ./install/setup.bash
- -
+source ./install/setup.bash
+```
 EXAMPLE:
 kalyon@kalyon-ak:~/ydlidar_ros2_ws$ source ./install/setup.bash
 
@@ -153,20 +156,20 @@ ros2 launch ydlidar_ros2_driver ydlidar_launch.py   <<<<<<YOU CAN CALL YOUR LIDA
 2. RVIZ 
 
 ros2 launch ydlidar_ros2_driver ydlidar_launch_view.py
-~~
+```
 <<<< YOU DONT NEED THAT COMMAND THIS NODE WILL NOT WORK, OR IF YOU CHANGE THE DECLERATIONS THAT YOU MADE TO ydlidar_launch.py 	
 ~~
 IT WILL WORK TOO..
 
 1))BUT INSTEAD OF DOING THAT... DO THIS:
 ros2 launch ydlidar_ros2_driver ydlidar_launch.py 
-~~
+```
 ><<< CALL YOUR LIDAR..
 
 2))IN ANOTHER COMMAND WINDOW, CALL RVIZ:
 
 rviz2
-~~
+```
 3)) go to rviz
 
 --click Add
