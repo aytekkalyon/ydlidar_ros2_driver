@@ -1,23 +1,37 @@
-![YDLIDAR](images/YDLidar.jpg  "YDLIDAR")
-# YDLIDAR ROS2 Driver
+HOW TO FIX ERRORS!
+-------------------
 
-ydlidar_ros2_driver is a new ros package, which is designed to gradually become the standard driver package for ydlidar devices in the ros2 environment.
+----------IF YOU FACE ERRORS LIKE 
 
-## How to [install ROS2](https://index.ros.org/doc/ros2/Installation)
-[ubuntu](https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/)
+YDLidar-SDK/./core/base/thread.h:138:46: warning: format ‘%X’ expects argument of type ‘unsigned int’, but argument 2 has type ‘_size_t’ {aka ‘long unsigned int’} [-Wformat=]
+  138 |           printf("[YDLIDAR DEBUG] Thread [0x%X] ready to cancel[%d] time[%u]\n",
+      |                                             ~^
+      |                                              |
+      |                                              unsigned int
+      |                                             %lX
 
-[windows](https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary/)
 
-## How to Create a ROS2 workspace
-[Create a workspace](https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/#create-a-workspace)
-
-
-## Compile & Install YDLidar SDK
-
+      
+THAN YOU ARE AT THE RIGHT PLACE. :)
+-
+ERROR FIXING TESTED! ON YDLIDAR UBUNTU 20.04 WITH ROS2 FOXY AND HUMBLE AND 22.04 WITH ROS2 FOXY AND HUMBLE 
+-
+VERY EASY ... LETS START FROM THE BEGINING...
+-
+STEP 1- GO TO INSTALL SDK PAGE AND DO WHATEVER IS SAID. DONT WORRY IF YOU SEE ERROR MESSAGES, KEEP GOING TILL THE END. WE WILL FIX IT AFTER THE INSTALLATION
+-
+(ORIGINAL INSTRUCTIONS:
+-
 ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed YDLidar-SDK library or it is out of date, you must first install YDLidar-SDK library. If you have installed the latest version of YDLidar-SDK, skip this step and go to the next step.
 
 1. Download or clone the [YDLIDAR/YDLidar-SDK](https://github.com/YDLIDAR/YDLidar-SDK) repository on GitHub.
-2. Compile and install the YDLidar-SDK under the ***build*** directory following `README.md` of YDLIDAR/YDLidar-SDK.
+2. Compile and install the YDLidar-SDK under the ***build*** directory following `README.md` of YDLIDAR/YDLidar-SDK.)
+FOLLOW THE INSTRUCTIONS AND INSTALL THE YDLIDAR-SKD!
+
+AFTER YDLIDAR-SDK INSTALLATION GO HOME PLACE
+cd           (press enter)
+
+ ----------------------than again the original instructions to follow:
 
 ## Clone ydlidar_ros2_driver
 
@@ -30,78 +44,105 @@ ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed 
    ```
    cd ydlidar_ros2_ws
    colcon build --symlink-install
-   ```
-   Note: install colcon [see](https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/#install-colcon)
 
-   ![CMAKE Finished](images/finished.png  "CMAKE Finished")
+---------------------------------------------------
+ABOVE IT SAYS YOU TO DO:
+1) cd           		(press enter)
+2) cd ydlidar_ros2_ws           (press enter)
+3) colcon build  		(press enter)
+-----------------------------------------------------
 
-   <font color=Red size=4>>Note: If the following error occurs, Please install  [YDLIDAR/YDLidar-SDK](https://github.com/YDLIDAR/YDLidar-SDK) first.</font>
+AGAIN YOU WILL SEE LOTS OF ERRORS LIKE THIS... DONT WORRY
+-----
+s2_driver_node.cpp:16:
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h: In function ‘bool ydlidar::core::base::fileExists(const string&)’:
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_ino’ [-Wmissing-field-initializers]
+  183 |   struct stat info = {0};
+      |                        ^
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_mode’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_nlink’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_uid’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_gid’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_rdev’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::__pad1’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_size’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_blksize’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::__pad2’ [-Wmissing-field-initializers]
+/home/kalyon/robot_ws/install/ydlidar_sdk/include/core/base/ydlidar.h:183:24: warning: missing initializer for member ‘stat::st_blocks’ [-Wmissing-field-initializers]
+.
+.
+.BLA BLA BLA BLA
+.
+.
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/kalyon/ydlidar_ros2_ws/src/ydlidar_ros2_driver/src/ydlidar_ros2_driver_node.cpp:180:51: warning: unused parameter ‘response’ [-Wunused-parameter]
+  180 |   std::shared_ptr<std_srvs::srv::Empty::Response> response) -> bool
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
 
-   ![CMAKE ERROR](images/cmake_error.png  "CMAKE ERROR")
+Finished <<< ydlidar_ros2_driver [23.8s]
 
-3. Package environment setup :
+Summary: 1 package finished [35.2s]
+  1 package had stderr output: ydlidar_ros2_driver
+source ./install/setup.bash
 
-   `source ./install/setup.bash`
 
-    Note: Add permanent workspace environment variables.
-    It's convenientif the ROS2 environment variables are automatically added to your bash session every time a new shell is launched:
-    ```
-    $echo "source ~/ydlidar_ros2_ws/install/setup.bash" >> ~/.bashrc
-    $source ~/.bashrc
-    ```
-4. Confirmation
-    To confirm that your package path has been set, printenv the `grep -i ROS` variable.
-    ```
-    $ printenv | grep -i ROS
-    ```
-    You should see something similar to:
-        `OLDPWD=/home/tony/ydlidar_ros2_ws/install`
 
-5. Create serial port Alias [optional] 
-    ```
-	$chmod 0777 src/ydlidar_ros2_driver/startup/*
-	$sudo sh src/ydlidar_ros2_driver/startup/initenv.sh
-    ```
-    Note: After completing the previous operation, replug the LiDAR again.
-	
-## Configure LiDAR [paramters](params/ydlidar.yaml)
-```
-ydlidar_ros2_driver_node:
-  ros__parameters:
-    port: /dev/ttyUSB0
-    frame_id: laser_frame
-    ignore_array: ""
-    baudrate: 230400
-    lidar_type: 1
-    device_type: 0
-    sample_rate: 9
-    abnormal_check_count: 4
-    resolution_fixed: true
-    reversion: true
-    inverted: true
-    auto_reconnect: true
-    isSingleChannel: false
-    intensity: false
-    support_motor_dtr: false
-    angle_max: 180.0
-    angle_min: -180.0
-    range_max: 64.0
-    range_min: 0.01
-    frequency: 10.0
-    invalid_range_is_inf: false
-```
+LET'S KEEP GOING.. TYPE THOSE COMMANDS TOO:
+4) source ./install/setup.bash    					 (ENTER)
+5) echo "source ~/ydlidar_ros2_ws/install/setup.bash" >> ~/.bashrc  	 (ENTER)
+6) $source ~/.bashrc							 (ENTER)
+-------
 
-## Run ydlidar_ros2_driver
+WE ARE BEGINING TO FIX THE ERRORS!!!!!!!!!!!
+NOW THERE ARE 3 FILES TO CHANGE! DESTROY THE OLD ONES!
+-
+1ST FILE: 
+ydlidar.yaml  <<<located under your home/  ydlidar_ws/src/ydlidar_ros2_driver/params   find it and change! what you are changing.. let me explain, i am using X4 lidar, which has a baudrate 128000.. not the other- other values creates errors!!, it changes that and some other work or sensor parameters. 
+---------------------------------------
+IF YOU ARE USING OTHER MODELS, OPEN THE ydlidar.yaml file, YOU WILL SEE LOTS OF PARAMETERS LIKE  "BAUDRATE",  "SAMPLE RATE" ETC.. FROM ORIGINAL PAGE CHECK YOUR OWN DEVICE'S PARAMETERS AND CONFIGURE YOURS. 
+-ORIGINAL PAGE BELOW:
+https://github.com/YDLIDAR/ydlidar_ros2_driver/blob/master/details.md#dataset
+-----------------------------------------------------
 
-##### Run ydlidar_ros2_driver using launch file
+2ND FILE:
+ydlidar_launch.py   <<<<<<located under:     home/  ydlidar_ws/src/ydlidar_ros2_driver/launch    change it !
+---------------------------------------------------
 
-The command format is : 
 
- `ros2 launch ydlidar_ros2_driver [launch file].py`
+3RD FILE:
+ydlidar_ros2_driver_node.cpp >>>>located under     home/     ydlidar_ws/src/ydlidar_ros2_driver/src     find it and change it. what you are changing: there are declarations in the file. but written wrong. we add if the decleration is a string <std::string> or if it is a boolean <bool> or if it is an integer <int>  or it is a <float>
+----------------------------------------------------
+THAN FINALLY MAKE A COLCON BUILD --SYMLINK-INSTALL
+GO TO:
+YOURPC@YOURPC-YOURPC:   ~/ydlidar_ros2_ws$ AND TYPE THE COMMAND>>>>    
 
+colcon build --symlink-install
+--
+EXAMPLE:
+-
+kalyon@kalyon-ak:~/ydlidar_ros2_ws$ colcon build --symlink-install
+[13.808s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/kalyon/robot_ws/install/ydlidar' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[13.809s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/kalyon/robot_ws/install/ydlidar' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+Starting >>> ydlidar_ros2_driver
+Finished <<< ydlidar_ros2_driver [8.55s]
+
+CONGS! YOU MADE IT... 
+
+LETS FINALLY DO THE SOURCING!
+
+ source ./install/setup.bash
+ -
+EXAMPLE:
+kalyon@kalyon-ak:~/ydlidar_ros2_ws$ source ./install/setup.bash
+
+
+
+...CONTINUE TO THE ORIGINAL INSTRUCTIONS:
+-
 1. Connect LiDAR uint(s).
    ```
-   ros2 launch ydlidar_ros2_driver ydlidar_launch.py 
+ros2 launch ydlidar_ros2_driver ydlidar_launch.py   <<<<<<YOU CAN CALL YOUR LIDAR WITH THAT COMMAND
+---------------------------------------------------------------------------------------------------   
    ```
    or 
 
@@ -109,76 +150,35 @@ The command format is :
    launch $(ros2 pkg prefix ydlidar_ros2_driver)/share/ydlidar_ros2_driver/launch/ydlidar.py 
    ```
 2. RVIZ 
-   ```
-   ros2 launch ydlidar_ros2_driver ydlidar_launch_view.py 
-   ```
-    ![View](images/view.png  "View")
+-
+ros2 launch ydlidar_ros2_driver ydlidar_launch_view.py    <<<< YOU DONT NEED THAT COMMAND THIS NODE WILL NOT WORK, OR IF YOU CHANGE THE DECLERATIONS THAT YOU MADE TO ydlidar_launch.py 	IT WILL WORK TOO..
 
-3. echo scan topic
-   ```
-   ros2 run ydlidar_ros2_driver ydlidar_ros2_driver_client or ros2 topic echo /scan
-   ```
+1))BUT INSTEAD OF DOING THAT... DO THIS:
+ros2 launch ydlidar_ros2_driver ydlidar_launch.py   ><<< CALL YOUR LIDAR..
 
-#####  Launch file introduction
+2))IN ANOTHER COMMAND WINDOW, CALL RVIZ
+rviz2
 
-The driver offers users a wealth of options when using different launch file. The launch file directory    
+3)) go to rviz
+--click Add
+--click ByTopic
+--scroll down and find /scan LaserScan , choose and click ok
+--on the left menu,  2-3 settings needs to be changed!
 
-is `"ydlidar_ros2_ws/src/ydlidar_ros2_driver/launch"`. All launch files are listed as below : 
+Global Optipns
+Fixed Frame: base_link
 
-| launch file               | features                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| ydlidar.py         | Connect to defualt paramters<br/>Publish LaserScan message on `scan` topic |
-| ydlidar_launch.py         | Connect ydlidar.yaml Lidar specified by configuration parameters<br/>Publish LaserScan message on `scan` topic |
-| ydlidar_launch_view.py         | Connect ydlidar.yaml Lidar specified by configuration parameters and setup RVIZ<br/>Publish LaserScan message on `scan` topic |
+LaserScan
+Topic: /scan
+History Policy: System Default
+Reliability Policy: Best Effort
+Durability Policy: Volatile
 
-
-
-## Publish Topic
-| Topic                | Type                    | Description                                      |
-|----------------------|-------------------------|--------------------------------------------------|
-| `scan`               | sensor_msgs/LaserScan   | 2D laser scan of the 0-angle ring                |
-
-## Subscribe Service
-| Service                | Type                    | Description                                      |
-|----------------------|-------------------------|--------------------------------------------------|
-| `stop_scan`          | std_srvs::Empty   | turn off lidar                                         |
-| `start_scan`         | std_srvs::Empty   | turn on lidar                                          |
+--on the right menu
+Current View: Orbit (rviz)
+Target Frame: laser_frame or base_link (you choose and try others)
 
 
-
-## Configure ydlidar_ros_driver internal parameter
-
-The ydlidar_ros2_driver internal parameters are in the launch file, they are listed as below :
-
-| Parameter name | Data Type | detail                                                       |
-| -------------- | ------- | ------------------------------------------------------------ |
-| port         | string | Set Lidar the serial port or IP address <br/>it can be set to `/dev/ttyUSB0`, `192.168.1.11`, etc. <br/>default: `/dev/ydlidar` |
-| frame_id     | string | Lidar TF coordinate system name. <br/>default: `laser_frame` |
-| ignore_array | string | LiDAR filtering angle area<br/>eg: `-90, -80, 30, 40` |
-| baudrate     | int | Lidar baudrate or network port. <br/>default: `230400` |
-| lidar_type     | int | Set lidar type <br/>0 -- TYPE_TOF<br/>1 -- TYPE_TRIANGLE<br/>2 -- TYPE_TOF_NET <br/>default: `1` |
-| device_type     | int | Set device type <br/>0 -- YDLIDAR_TYPE_SERIAL<br/>1 -- YDLIDAR_TYPE_TCP<br/>2 -- YDLIDAR_TYPE_UDP <br/>default: `0` |
-| sample_rate     | int | Set Lidar Sample Rate. <br/>default: `9` |
-| abnormal_check_count     | int | Set the number of abnormal startup data attempts. <br/>default: `4` |
-| fixed_resolution     | bool | Fixed angluar resolution. <br/>default: `true` |
-| reversion     | bool | Reversion LiDAR. <br/>default: `true` |
-| inverted     | bool | Inverted LiDAR.<br/>false -- ClockWise.<br/>true -- CounterClockWise  <br/>default: `true` |
-| auto_reconnect     | bool | Automatically reconnect the LiDAR.<br/>true -- hot plug. <br/>default: `true` |
-| isSingleChannel     | bool | Whether LiDAR is a single-channel.<br/>default: `false` |
-| intensity     | bool | Whether LiDAR has intensity.<br/>true -- G2 LiDAR.<br/>default: `false` |
-| support_motor_dtr     | bool | Whether the Lidar can be started and stopped by Serial DTR.<br/>default: `false` |
-| angle_min     | float | Minimum Valid Angle.<br/>default: `-180` |
-| angle_max     | float | Maximum Valid Angle.<br/>default: `180` |
-| range_min     | float | Minimum Valid range.<br/>default: `0.1` |
-| range_max     | float | Maximum Valid range.<br/>default: `16.0` |
-| frequency     | float | Set Scanning Frequency.<br/>default: `10.0` |
-| invalid_range_is_inf     | bool | Invalid Range is inf.<br/>true -- inf.<br/>false -- 0.0.<br/>default: `false` |
-More paramters details, see [here](details.md)
-
-## Contact EAI
-![Development Path](images/EAI.png)
-
-If you have any extra questions, please feel free to [contact us](http://www.ydlidar.cn/cn/contact)
 
 
 
